@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_eshop/pages/cart_page.dart';
 import 'package:minimal_eshop/pages/intropage.dart';
+import 'package:minimal_eshop/pages/profile_page.dart';
+import 'package:minimal_eshop/pages/shop_page.dart';
 import 'package:minimal_eshop/themes/light_mode.dart';
 
 void main() {
@@ -15,6 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: IntroPage(),
       theme: lightMode,
+      routes: {
+        '/intropage': (context) => const IntroPage(),
+        '/shop_page': (context) => const ShopPage(),
+        '/cart_page': (context) => const CartPage(),
+        '/profile_page': (context) => const ProfilePage()
+      },
     );
   }
 }
