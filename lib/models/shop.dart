@@ -14,19 +14,29 @@ class Shop{
       name: "Product 2",
       price: 80.00,
       description: "Item description",
-      imagePath: '/No',
+      imagePath: '',
     ),
     Product(
       name: "Product 3",
       price: 70.00,
       description: "Item description",
-      imagePath: '/No',
+      imagePath: '',
     ),
     Product(
       name: "Product 4",
       price: 60.00,
       description: "Item description",
-      imagePath: '/No',
+      imagePath: '',
     )
   ];
+
+  //User cart
+
+  //get product list
+
+  //get user cart
+
+  //add item to cart
+
+  //remove item from cart
 }
