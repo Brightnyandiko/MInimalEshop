@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_eshop/components/my_button.dart';
 import 'package:minimal_eshop/components/my_drawer.dart';
 import 'package:minimal_eshop/models/product.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +42,16 @@ void removeItemFromCart (BuildContext context, Product product) {
     );
   }
 
+  //user pressed pay button
+  void payButtonPressed(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text("User wants to pay! Connect this app to your payment backend"),
+        )
+    );
+  }
+
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
@@ -68,7 +79,9 @@ class _CartPageState extends State<CartPage> {
         children: [
           //cart list
           Expanded(
-              child: ListView.builder(
+              child: cart.isEmpty?
+              const Center(child: const Text("Your cart is empty")):
+              ListView.builder(
                   itemCount: cart.length,
                   itemBuilder: (context, index) {
                     //get individual item in cart
@@ -85,6 +98,15 @@ class _CartPageState extends State<CartPage> {
                     );
                   }
               )
+          ),
+
+          //pay button
+          Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: MyButton(
+              child: Text("PAY NOW"),
+              onTap: () => payButtonPressed(context)
+            ),
           )
         ],
       ),
