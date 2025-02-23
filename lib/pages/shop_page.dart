@@ -15,17 +15,21 @@ class ShopPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(right: 50),
-            child: const Text(
-              "Shop Page",
-              style: TextStyle(
-                fontSize: 24,
-              ),
+        title: const Center(
+          child: Text(
+            "Shop Page",
+            style: TextStyle(
+              fontSize: 24,
             ),
           ),
         ),
+        actions: [
+          //go to cart button
+          IconButton(
+              onPressed:() => Navigator.pushNamed(context, '/cart_page'),
+              icon: Icon(Icons.shopping_cart_outlined)
+          )
+        ],
       ),
       drawer: MyDrawer(),
       body: ListView(
